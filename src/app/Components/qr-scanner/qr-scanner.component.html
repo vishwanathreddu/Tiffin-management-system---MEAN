@@ -1,0 +1,11 @@
+<div *ngIf="isAdmin; else notAuthorized">
+    <h3>QR Scanner (Admin only)</h3>
+    <!-- Assume we have a third-party QR scanner -->
+    <div id="qr-scanner-container">
+        <!-- The actual QR scanner logic will be implemented here -->
+        <p>QR scanner for payments (implementation specific)</p>
+    </div>
+</div>
+<ng-template #notAuthorized>
+    <p>You do not have permission to view the QR scanner.</p>
+</ng-template>

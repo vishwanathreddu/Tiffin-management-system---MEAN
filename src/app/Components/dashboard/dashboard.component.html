@@ -1,0 +1,84 @@
+<!-- <div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Dashboard</h5>
+        </div>
+        <div class="card-body">
+            <p>Welcome to the dashboard! You can mark your tiffin for tomorrow here.</p>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- <div class="dashboard-container">
+    <div class="header">
+        <h1>Welcome, {{ currentUser?.name }}</h1>
+        <button mat-button (click)="logout()">Logout</button>
+    </div>
+
+    <div class="content">
+        <div class="widget">
+            <h2>Mark Tomorrow's Tiffin</h2>
+            <button mat-raised-button color="primary" (click)="navigateToTiffin()">Mark Tiffin</button>
+        </div>
+    </div>
+</div> -->
+
+<!-- test-1 Best-->
+<!-- <div class="dashboard-container">
+    <div class="header">
+        <h1>Welcome, {{ currentUser?.name }}</h1>
+        <button mat-button (click)="logout()">Logout</button>
+    </div>
+    <div class="user-dashboard">
+        <h1>Welcome to the User Dashboard, {{ currentUser?.fullname }}!</h1>
+    </div>
+
+
+    <div class="content">
+        <div class="widget">
+            <h2>Mark Tomorrow's Tiffin</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('mark-tiffin')">Mark Tiffin</button>
+        </div>
+
+        <div class="widget">
+            <h2>Marking Tiffin History</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('tiffin-history')">View History</button>
+        </div>
+
+        <div class="widget">
+            <h2>Payment</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('payment')">Manage Payment</button>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="dashboard-container">
+    <div class="header">
+        <h1>Welcome, {{ currentUser?.name }}</h1>
+        <button mat-raised-button color="warn" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="user-dashboard">
+        <h1>Welcome to the User Dashboard, {{ currentUser?.fullname }}!</h1>
+        <!-- User-specific features and information -->
+    </div>
+
+    <div class="content">
+        <div class="widget">
+            <h2>Mark Tomorrow's Tiffin</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('mark-tiffin')">Mark Tiffin</button>
+        </div>
+
+        <div class="widget">
+            <h2>Marking Tiffin History</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('tiffin-history')">View History</button>
+        </div>
+
+        <div class="widget">
+            <h2>Payment</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('payment')">Manage Payment</button>
+        </div>
+    </div>
+</div>

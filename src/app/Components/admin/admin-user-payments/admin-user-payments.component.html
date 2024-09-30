@@ -1,0 +1,417 @@
+<!-- <div class="payment-list">
+    <h2>User Payments</h2>
+    <mat-table [dataSource]="payments" class="mat-elevation-z8">
+
+         User Name Column 
+        <ng-container matColumnDef="username">
+            <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+        </ng-container>
+
+         Amount Column 
+        <ng-container matColumnDef="amount">
+            <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.amount}} </mat-cell>
+        </ng-container>
+
+         Date Column 
+        <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.date | date:'short'}} </mat-cell>
+        </ng-container>
+
+         Transaction Photo Column 
+        <ng-container matColumnDef="transactionPhoto">
+            <mat-header-cell *matHeaderCellDef> Transaction Photo </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                // <img [src]="element.transactionPhoto" alt="Transaction" width="100"> 
+                <img [src]="'/uploads/' + element.transactionPhoto" alt="Transaction Photo" width="100">
+
+                // test-1
+                <img [src]="'http://localhost:3000/uploads/' + element.transactionPhoto" alt="Transaction Photo"
+                    width="100">
+
+                //test-2 
+                <img [src]="'http://localhost:3000/uploads/' + element.transactionPhoto" alt="Transaction Photo"
+                    width="100">
+
+                    
+
+            </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="['username', 'amount', 'date', 'transactionPhoto']"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: ['username', 'amount', 'date', 'transactionPhoto'];"></mat-row>
+    </mat-table>
+
+    <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+    </div>
+</div> -->
+
+<!-- best -->
+<!-- <div>
+    <label for="month">Select Month:</label>
+    <select id="month" [(ngModel)]="selectedMonth" (change)="fetchPaymentsByMonth()">
+        <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+    </select>
+    <label for="year">Select Year:</label>
+    <select id="year" [(ngModel)]="selectedYear" (change)="fetchPaymentsByMonth()">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>User Fullname</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Transaction Photo</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let payment of payments">
+            <td>{{ payment.userId.fullname }}</td>
+            <td>{{ payment.amount }}</td>
+            <td>{{ payment.date | date: 'medium' }}</td>
+            <td>
+                <img *ngIf="payment.transactionPhoto" [src]="getImageUrl(payment.transactionPhoto)"
+                    alt="Transaction Photo" width="100">
+                <span *ngIf="!payment.transactionPhoto">No Photo</span>
+            </td>
+            <td>{{ payment.transactionPhoto ? 'Paid' : 'Unpaid' }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+</div> -->
+
+
+<!-- <div>
+    <label for="month">Select Month:</label>
+    <select id="month" [(ngModel)]="selectedMonth" (change)="fetchPaymentDues()">
+        <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+    </select>
+
+    <label for="year">Select Year:</label>
+    <select id="year" [(ngModel)]="selectedYear" (change)="fetchPaymentDues()">
+        <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>User Fullname</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Transaction Photo</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let payment of paymentDues">
+            <td>{{ payment.fullname }}</td>
+            <td>{{ payment.amount | currency }}</td>
+            <td>{{ payment.date | date: 'medium' }}</td>
+            <td>
+                <img *ngIf="payment.transactionPhoto" [src]="getImageUrl(payment.transactionPhoto)"
+                    alt="Transaction Photo" width="100">
+                <span *ngIf="!payment.transactionPhoto">No Photo</span>
+            </td>
+            <td>{{ payment.status }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+</div> -->
+
+
+<!-- test-1 -->
+<!-- <mat-toolbar color="primary">
+    <span>Tiffin Management - Payment Dues</span>
+</mat-toolbar>
+
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <div class="form-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Month</mat-label>
+                    <mat-select [(ngModel)]="selectedMonth" (selectionChange)="fetchPaymentDues()">
+                        <mat-option *ngFor="let month of months" [value]="month.value">
+                            {{ month.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Year</mat-label>
+                    <mat-select [(ngModel)]="selectedYear" (selectionChange)="fetchPaymentDues()">
+                        <mat-option *ngFor="let year of years" [value]="year">
+                            {{ year }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-content>
+            <table mat-table [dataSource]="paymentDues" class="mat-elevation-z8" matSort>
+                
+                <ng-container matColumnDef="fullname">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>User Fullname</th>
+                    <td mat-cell *matCellDef="let payment">{{ payment.fullname }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount</th>
+                    <td mat-cell *matCellDef="let payment">{{ payment.amount | currency }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                    <td mat-cell *matCellDef="let payment">{{ payment.date | date: 'medium' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="transactionPhoto">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Transaction Photo</th>
+                    <td mat-cell *matCellDef="let payment">
+                        <img *ngIf="payment.transactionPhoto" [src]="getImageUrl(payment.transactionPhoto)"
+                            alt="Transaction Photo" width="100">
+                        <span *ngIf="!payment.transactionPhoto">No Photo</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                    <td mat-cell *matCellDef="let payment">{{ payment.status }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="errorMessage" class="error-message">
+        <mat-card-content>
+            {{ errorMessage }}
+        </mat-card-content>
+    </mat-card>
+</div> -->
+
+
+<!-- test-2 -->
+<!-- admin-user-payments.component.html -->
+
+<!-- <mat-toolbar color="primary">
+    <span>Tiffin Management - Payment Dues</span>
+</mat-toolbar>
+
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <div class="form-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Month</mat-label>
+                    <mat-select [(ngModel)]="selectedMonth" (selectionChange)="fetchPaymentDues()">
+                        <mat-option *ngFor="let month of months" [value]="month.value">
+                            {{ month.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Year</mat-label>
+                    <mat-select [(ngModel)]="selectedYear" (selectionChange)="fetchPaymentDues()">
+                        <mat-option *ngFor="let year of years" [value]="year">
+                            {{ year }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-content>
+            <table mat-table [dataSource]="paymentDues" class="mat-elevation-z8" matSort>
+                
+                <ng-container matColumnDef="fullname">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>User Fullname</th>
+                    <td mat-cell *matCellDef="let payment">{{ payment.fullname }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="amount">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount Due</th>
+                    <td mat-cell *matCellDef="let payment">{{ payment.amount | currency }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                    <td mat-cell *matCellDef="let payment">
+                        {{ payment.date ? (payment.date | date: 'medium') : 'N/A' }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="transactionPhoto">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Transaction Photo</th>
+                    <td mat-cell *matCellDef="let payment">
+                        <img *ngIf="payment.transactionPhoto" [src]="getImageUrl(payment.transactionPhoto)"
+                            alt="Transaction Photo" width="100">
+                        <span *ngIf="!payment.transactionPhoto">No Photo</span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                    <td mat-cell *matCellDef="let payment">{{ payment.status }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="errorMessage" class="error-message">
+        <mat-card-content>
+            {{ errorMessage }}
+        </mat-card-content>
+    </mat-card>
+</div> -->
+
+
+
+<!-- test-3 -->
+<!-- Components/admin/admin-user-payments.component.html -->
+<mat-toolbar color="primary">
+    <span>Tiffin Management - Payment Dues</span>
+</mat-toolbar>
+
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <div class="form-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Month</mat-label>
+                    <mat-select [(ngModel)]="selectedMonth" (selectionChange)="fetchPaymentDues()">
+                        <mat-option *ngFor="let month of months" [value]="month.value">
+                            {{ month.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Select Year</mat-label>
+                    <mat-select [(ngModel)]="selectedYear" (selectionChange)="fetchPaymentDues()">
+                        <mat-option *ngFor="let year of years" [value]="year">
+                            {{ year }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <div *ngIf="paymentDues.length > 0; else noData">
+        <table mat-table [dataSource]="paymentDues" class="mat-elevation-z8">
+            <!-- User Name Column -->
+            <ng-container matColumnDef="fullname">
+                <th mat-header-cell *matHeaderCellDef> Full Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.fullname}} </td>
+            </ng-container>
+
+            <!-- Total Days Column -->
+            <ng-container matColumnDef="totalDays">
+                <th mat-header-cell *matHeaderCellDef> Total Days </th>
+                <td mat-cell *matCellDef="let element"> {{element.totalDays}} </td>
+            </ng-container>
+
+            <!-- Total Amount Due Column -->
+            <ng-container matColumnDef="totalAmount">
+                <th mat-header-cell *matHeaderCellDef> Amount Due </th>
+                <td mat-cell *matCellDef="let element"> ₹{{element.totalAmount}} </td>
+            </ng-container>
+
+            <!-- Amount Paid Column -->
+            <ng-container matColumnDef="amountPaid">
+                <th mat-header-cell *matHeaderCellDef> Amount Paid </th>
+                <td mat-cell *matCellDef="let element"> ₹{{element.amountPaid}} </td>
+            </ng-container>
+
+            <!-- Transaction Photo Column -->
+            <ng-container matColumnDef="transactionPhoto">
+                <th mat-header-cell *matHeaderCellDef> Transaction Photo </th>
+                <td mat-cell *matCellDef="let element">
+                    <img *ngIf="element.transactionPhoto" [src]="getImageUrl(element.transactionPhoto)"
+                        alt="Transaction Photo" width="100">
+                    <span *ngIf="!element.transactionPhoto">No Image</span>
+                </td>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+
+            <!-- Header and Row Declarations -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+
+    <ng-template #noData>
+        <mat-card>
+            <mat-card-content>
+                <p>No payment dues found for the selected month and year.</p>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+</div>
+
+<!-- <style>
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 16px;
+    }
+
+    .mat-table {
+        width: 100%;
+    }
+
+    .mat-form-field {
+        width: 100%;
+        max-width: 300px;
+        margin-right: 16px;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+</style> -->
+
+
+
+
+
+<!-- <div *ngFor="let payment of payments">
+    <p>{{ payment.userId.fullname }}</p>
+    <p>Amount: {{ payment.amount }}</p>
+    <p>Date: {{ payment.date | date: 'medium' }}</p>
+    <img [src]="getImageUrl(payment.transactionPhoto)" alt="Transaction Photo" width="100">
+</div> -->

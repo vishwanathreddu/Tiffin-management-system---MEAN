@@ -1,0 +1,114 @@
+/* .dashboard-container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.widget {
+    flex: 1 1 30%;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .widget {
+        flex: 1 1 100%;
+    }
+} */
+
+
+
+
+.dashboard-container {
+    padding: 20px;
+    height: 89vh;
+    background-color: #f5f5f5;
+    background-image: url('/assets/Images/slide01.jpg');
+    /* Path to your image */
+    background-size: cover;
+    /* Cover the entire container */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    /* Primary color */
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 1.5rem;
+}
+
+.user-dashboard h1 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    /* Space between widgets */
+    justify-content: center;
+}
+
+.widget {
+    flex: 1 1 30%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    text-align: center;
+    /* Center text alignment */
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid #e0e0e0;
+}
+
+.widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.widget h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #2a0a6b;
+    /* Primary color */
+}
+
+.mat-raised-button {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .widget {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+}

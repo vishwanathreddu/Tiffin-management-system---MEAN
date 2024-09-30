@@ -1,0 +1,70 @@
+mat-card {
+    width: 400px;
+    padding: 20px;
+}
+
+/* Style for the signup container with a background image */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    /* Full viewport height */
+    background-image: url('/assets/Images/1000_F_488086891_nY0z5ZQN0nLkta42Ziv6kHehHlBclQyq.jpg');
+    /* Path to your image */
+    background-size: cover;
+    /* Cover the entire container */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Prevent tiling */
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* Style for the card to have a semi-transparent background */
+mat-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* White background with opacity */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+mat-card:hover {
+    transform: translateY(-5px);
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mat-button-link {
+    color: #3f51b5;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* .mat-button-link:hover {
+    color: #ffeb3b;
+} */
+
+@media (max-width: 600px) {
+    .mat-card {
+        width: 90%;
+    }
+
+    .container {
+        padding: 8px;
+    }
+}

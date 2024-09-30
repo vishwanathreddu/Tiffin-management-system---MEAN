@@ -1,0 +1,13 @@
+mat-card {
+    margin: 20px;
+}
+
+mat-table {
+    width: 100%;
+    overflow-x: auto;
+}
+
+mat-header-cell,
+mat-cell {
+    padding: 8px;
+}

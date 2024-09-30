@@ -1,0 +1,40 @@
+.admin-container {
+    padding: 16px;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+}
+
+mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.no-data {
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .mat-form-field {
+        width: 100%;
+    }
+}

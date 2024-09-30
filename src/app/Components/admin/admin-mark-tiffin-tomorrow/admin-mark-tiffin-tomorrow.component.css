@@ -1,0 +1,27 @@
+/* admin-mark-tiffin-tomorrow.component.css */
+
+.container {
+    max-width: 100%;
+    padding: 16px;
+}
+
+mat-card {
+    margin: 16px auto;
+    max-width: 1300px;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin: 16px 0;
+}
+
+table {
+    width: 100%;
+    margin-top: 16px;
+}
+
+mat-form-field {
+    width: 100%;
+}

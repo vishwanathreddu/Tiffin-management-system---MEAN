@@ -1,0 +1,304 @@
+<!-- tiffin-history.component.html
+<div class="tiffin-history-container">
+    <h2>Marking Tiffin History</h2>
+    <mat-table [dataSource]="tiffinHistory" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.date | date}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="chapatis">
+            <mat-header-cell *matHeaderCellDef> Chapatis </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.chapatis}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="vegOrNonVeg">
+            <mat-header-cell *matHeaderCellDef> Veg/Non-Veg </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.vegOrNonVeg}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="sabji">
+            <mat-header-cell *matHeaderCellDef> Sabji </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.sabji ? 'Yes' : 'No'}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="floor">
+            <mat-header-cell *matHeaderCellDef> Floor </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.floor}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <div class="totals">
+        <p><strong>Total Count:</strong> {{ totalCount }}</p>
+        <p><strong>Total Amount:</strong> Rs {{ totalAmount }}</p>
+    </div>
+</div> -->
+
+
+<!-- tiffin-history.component.html -->
+
+<!-- <div *ngIf="tiffinHistory.length > 0">
+    <h2>Tiffin History</h2>
+    <p>Total Tiffins: {{ totalCount }}</p>
+    <p>Total Amount: Rs {{ totalAmount }}</p>
+
+    <table mat-table [dataSource]="tiffinHistory" class="mat-elevation-z8">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let tiffin"> {{ tiffin.date | date: 'short' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="chapatis">
+            <th mat-header-cell *matHeaderCellDef> Chapatis </th>
+            <td mat-cell *matCellDef="let tiffin"> {{ tiffin.chapatis }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="vegOrNonVeg">
+            <th mat-header-cell *matHeaderCellDef> Veg/Non-Veg </th>
+            <td mat-cell *matCellDef="let tiffin"> {{ tiffin.vegOrNonVeg }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="sabji">
+            <th mat-header-cell *matHeaderCellDef> Sabji </th>
+            <td mat-cell *matCellDef="let tiffin"> {{ tiffin.sabji ? 'Yes' : 'No' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="floor">
+            <th mat-header-cell *matHeaderCellDef> Floor </th>
+            <td mat-cell *matCellDef="let tiffin"> {{ tiffin.floor }} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<div *ngIf="tiffinHistory.length === 0">
+    <p>No tiffin history available.</p>
+</div> -->
+
+
+<!-- tiffin-history.component.html -->
+<!-- <div class="tiffin-history-container">
+    <h2>Tiffin History</h2>
+    <table mat-table [dataSource]="tiffinHistory" class="mat-elevation-z8">
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Date</th>
+            <td mat-cell *matCellDef="let element">{{ element.date | date }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="vegOrNonVeg">
+            <th mat-header-cell *matHeaderCellDef>Veg/Non-Veg</th>
+            <td mat-cell *matCellDef="let element">{{ element.vegOrNonVeg }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="chapatis">
+            <th mat-header-cell *matHeaderCellDef>Chapatis</th>
+            <td mat-cell *matCellDef="let element">{{ element.chapatis }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="sabji">
+            <th mat-header-cell *matHeaderCellDef>Sabji</th>
+            <td mat-cell *matCellDef="let element">{{ element.sabji ? 'Yes' : 'No' }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="floor">
+            <th mat-header-cell *matHeaderCellDef>Floor</th>
+            <td mat-cell *matCellDef="let element">{{ element.floor }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <div *ngIf="totalCount === 0">
+        <p>No tiffin history available.</p>
+    </div>
+    <div *ngIf="totalCount > 0">
+        <p>Total Tiffins: {{ totalCount }}</p>
+        <p>Total Amount: {{ totalAmount | currency:'INR' }}</p>
+    </div>
+</div> -->
+
+
+<!-- test-5 -->
+<!-- Angular Component: tiffin-history.component.html -->
+
+<!-- <div *ngIf="tiffinHistory.length > 0; else noData">
+    <ul>
+        <li *ngFor="let tiffin of tiffinHistory">
+            {{ tiffin.date }} - {{ tiffin.vegOrNonVeg }} - {{ tiffin.chapatis }}
+        </li>
+    </ul>
+</div>
+
+<ng-template #noData>
+    <p>{{ errorMessage }}</p>
+</ng-template> -->
+
+<!-- test-6 -->
+<!-- <div class="tiffin-history-container">
+    <mat-card *ngIf="tiffinHistory.length > 0; else noData">
+        <mat-card-header>
+            <mat-card-title class="text-center">Tiffin History</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-table [dataSource]="tiffinHistory" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.date | date: 'dd/MM/yyyy' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="time">
+                    <mat-header-cell *matHeaderCellDef> Time (IST) </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.date | date: 'hh:mm a' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="vegOrNonVeg">
+                    <mat-header-cell *matHeaderCellDef> Veg/Non-Veg </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.vegOrNonVeg }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="chapatis">
+                    <mat-header-cell *matHeaderCellDef> Chapatis </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.chapatis }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="sabji">
+                    <mat-header-cell *matHeaderCellDef> Sabji </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.sabji ? 'Yes' : 'No' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="floor">
+                    <mat-header-cell *matHeaderCellDef> Floor </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.floor }} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </mat-card-content>
+    </mat-card>
+
+    <ng-template #noData>
+        <mat-card>
+            <mat-card-content>
+                <p>{{ errorMessage }}</p>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+</div> -->
+
+
+
+<div class="tiffin-history-container">
+    <mat-card *ngIf="tiffinHistory.length > 0; else noData">
+        <mat-card-header>
+            <mat-card-title class="text-center">Tiffin History</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-table [dataSource]="tiffinHistory" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.date | date: 'dd/MM/yyyy' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="time">
+                    <mat-header-cell *matHeaderCellDef> Time (IST) </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.formattedTime }} </mat-cell>
+                    <!-- <mat-cell *matCellDef="let element"> {{ element.date | date: 'hh:mm a' }} </mat-cell> -->
+
+                </ng-container>
+
+                <ng-container matColumnDef="vegOrNonVeg">
+                    <mat-header-cell *matHeaderCellDef> Veg/Non-Veg </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.vegOrNonVeg }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="chapatis">
+                    <mat-header-cell *matHeaderCellDef> Chapatis </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.chapatis }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="sabji">
+                    <mat-header-cell *matHeaderCellDef> Sabji </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.sabji ? 'Yes' : 'No' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="floor">
+                    <mat-header-cell *matHeaderCellDef> Floor </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.floor }} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </mat-card-content>
+    </mat-card>
+
+    <ng-template #noData>
+        <mat-card>
+            <mat-card-content>
+                <p>{{ errorMessage }}</p>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+</div>
+
+
+<!-- <div class="tiffin-history-container">
+    <mat-card *ngIf="tiffinHistory.length > 0; else noData">
+        <mat-card-header>
+            <mat-card-title class="text-center">Tiffin History</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-table [dataSource]="tiffinHistory" class="mat-elevation-z8">
+                <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.date | date: 'dd/MM/yyyy' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="time">
+                    <mat-header-cell *matHeaderCellDef> Time (IST) </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.date | date: 'HH:mm' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="vegOrNonVeg">
+                    <mat-header-cell *matHeaderCellDef> Veg/Non-Veg </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.vegOrNonVeg }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="chapatis">
+                    <mat-header-cell *matHeaderCellDef> Chapatis </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.chapatis }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="sabji">
+                    <mat-header-cell *matHeaderCellDef> Sabji </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.sabji ? 'Yes' : 'No' }} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="floor">
+                    <mat-header-cell *matHeaderCellDef> Floor </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{ element.floor }} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </mat-card-content>
+    </mat-card>
+
+    <ng-template #noData>
+        <mat-card>
+            <mat-card-content>
+                <p>{{ errorMessage }}</p>
+            </mat-card-content>
+        </mat-card>
+    </ng-template>
+</div> -->

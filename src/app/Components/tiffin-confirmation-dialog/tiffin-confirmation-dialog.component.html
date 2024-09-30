@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Confirm Tiffin Details</h2>
+<mat-dialog-content>
+    <p><strong>Username:</strong> {{ data.username }}</p>
+    <p><strong>Date:</strong> {{ data.date | date }}</p>
+    <p><strong>Veg or Non-Veg:</strong> {{ data.vegOrNonVeg }}</p>
+    <p><strong>No of Chapatis:</strong> {{ data.chapatis }}</p>
+    <p><strong>Sabji:</strong> {{ data.sabji ? 'Yes' : 'No' }}</p>
+    <p><strong>Floor:</strong> {{ data.floor }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="confirmAndClose()">Confirm</button>
+</mat-dialog-actions>

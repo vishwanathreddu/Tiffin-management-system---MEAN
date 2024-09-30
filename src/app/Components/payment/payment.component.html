@@ -1,0 +1,42 @@
+<!-- <div class="payment-container">
+    <h2>Payment</h2>
+    <button mat-raised-button color="primary" routerLink="qr-scanner">QR Scanner</button>
+    <button mat-raised-button color="primary" routerLink="payment-status-form">Payment Status</button>
+    <router-outlet></router-outlet>
+</div> -->
+
+
+<!-- test-1 -->
+<div class="payment-container">
+    <button mat-raised-button color="primary" (click)="openQRScanner()">QR Scanner</button>
+    <button mat-raised-button color="accent" (click)="openPaymentStatus()">Payment Status</button>
+
+    <div *ngIf="paymentDone" class="payment-form">
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" >
+                <!-- <input matInput formControlName="username" disabled> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Total Amount (Rs)</mat-label>
+                <input matInput formControlName="amount">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Payment Screenshot</mat-label>
+                <input matInput type="file" (change)="onFileSelected($event)">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Confirm Payment</button>
+        </form>
+    </div>
+</div>

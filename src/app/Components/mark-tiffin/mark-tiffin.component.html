@@ -1,0 +1,185 @@
+<!-- <div class="mark-tiffin-container">
+    <h2>Mark Tomorrow's Tiffin</h2>
+    <form [formGroup]="tiffinForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" [value]="tiffinForm.get('username')?.value" required>
+          </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Veg or Non-Veg</mat-label>
+            <mat-select formControlName="vegOrNonVeg" required>
+                <mat-option value="veg">Veg</mat-option>
+                <mat-option value="non-veg">Non-Veg</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>No of Chapatis</mat-label>
+            <input type="number" matInput formControlName="chapatis" min="1" required>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="sabji">Sabji</mat-checkbox>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Floor</mat-label>
+            <input matInput formControlName="floor" required>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+</div> -->
+
+
+
+<!-- <div class="container">
+    <div class="mark-tiffin-container mat-elevation-z3">
+        <h2>Mark Tomorrow's Tiffin</h2>
+        <form [formGroup]="tiffinForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" [value]="tiffinForm.get('username')?.value" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Veg or Non-Veg</mat-label>
+                <mat-select formControlName="vegOrNonVeg" required>
+                    <mat-option value="veg">Veg</mat-option>
+                    <mat-option value="non-veg">Non-Veg</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            test-1
+            <mat-form-field appearance="outline" *ngIf="tiffinAvailability !== 'none'">
+                <mat-label>Veg or Non-Veg</mat-label>
+                <mat-select formControlName="vegOrNonVeg" required [disabled]="tiffinAvailability === 'veg'">
+                    <mat-option value="veg">Veg</mat-option>
+                    <mat-option value="non-veg">Non-Veg</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            TESST-2
+            Only show options based on admin's choice
+            <mat-form-field appearance="outline">
+                <mat-label>Veg or Non-Veg</mat-label>
+                <mat-select formControlName="vegOrNonVeg" required>
+                    <mat-option *ngIf="tiffinAvailability !== 'none'" value="veg"
+                        [disabled]="tiffinAvailability === 'veg'">Veg</mat-option>
+                        <mat-option value="non-veg" [disabled]="isNonVegDisabled()">Non-Veg</mat-option>                </mat-select>
+            </mat-form-field>
+
+
+
+            <mat-form-field appearance="outline">
+                <mat-label>No of Chapatis</mat-label>
+                <input type="number" matInput formControlName="chapatis" min="1" required>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="sabji">Sabji</mat-checkbox>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Floor</mat-label>
+                <input matInput formControlName="floor" required>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+
+<!-- <div class="container">
+    <div class="mark-tiffin-container mat-elevation-z3">
+        <h2>Mark Tomorrow's Tiffin</h2>
+        <form [formGroup]="tiffinForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" [value]="tiffinForm.get('username')?.value" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Veg or Non-Veg</mat-label>
+                <mat-select formControlName="vegOrNonVeg" required>
+                    <mat-option value="veg" [disabled]="tiffinAvailability === 'non-veg'">Veg</mat-option>
+                    <mat-option value="non-veg" [disabled]="isNonVegDisabled()">Non-Veg</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>No of Chapatis</mat-label>
+                <input type="number" matInput formControlName="chapatis" min="1" required>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="sabji">Sabji</mat-checkbox>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Floor</mat-label>
+                <input matInput formControlName="floor" required>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="tiffinForm.disabled">Submit</button>
+        </form>
+    </div>
+</div> -->
+
+<div class="container">
+    <div class="mark-tiffin-container mat-elevation-z3">
+        <h2>Mark Tomorrow's Tiffin</h2>
+        <form [formGroup]="tiffinForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" [value]="tiffinForm.get('username')?.value" required>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Veg or Non-Veg</mat-label>
+                <mat-select formControlName="vegOrNonVeg" required>
+                    <mat-option value="veg" [disabled]="isVegDisabled()">Veg</mat-option>
+                    <mat-option value="non-veg" [disabled]="isNonVegDisabled()">Non-Veg</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>No of Chapatis</mat-label>
+                <input type="number" matInput formControlName="chapatis" min="1" required>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="sabji">Sabji</mat-checkbox>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Floor</mat-label>
+                <input matInput formControlName="floor" required>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="tiffinForm.disabled">Submit</button>
+        </form>
+    </div>
+</div>

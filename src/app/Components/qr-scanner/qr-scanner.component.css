@@ -1,0 +1,7 @@
+#qr-scanner-container {
+    /* Styles to position the scanner */
+    width: 100%;
+    height: 300px;
+    border: 2px solid #333;
+    background-color: #f5f5f5;
+}

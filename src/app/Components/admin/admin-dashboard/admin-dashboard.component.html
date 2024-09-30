@@ -1,0 +1,42 @@
+<div class="admin-dashboard-container">
+    <div class="header">
+        <h1>Admin Dashboard</h1>
+        <button mat-button (click)="logout()">Logout</button>
+    </div>
+    <div class="admin-dashboard">
+        <h1>Welcome to the Admin Dashboard, {{ currentUser?.fullname }}!</h1>
+        <!-- Admin-specific features and controls -->
+    </div>
+
+
+
+    <div class="content">
+        <div class="widget">
+            <h2>User List</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('user-list')">View Users</button>
+        </div>
+
+        <div class="widget">
+            <h2>Mark Tiffin for Tomorrow</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('mark-tiffin-tomorrow')">Mark Tiffin</button>
+        </div>
+
+        <div class="widget">
+            <h2>Month-End Tiffin Report</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('admin-monthend-tiffin')">View Report</button>
+        </div>
+
+        <div class="widget">
+            <h2>Payment Status</h2>
+            <button mat-raised-button color="primary" (click)="navigateTo('admin-user-payments')">View
+                Payments</button>
+        </div>
+    </div>
+
+    <!-- Small icon to reopen the reminder -->
+    <div class="reminder-icon" *ngIf="!hasSeenReminderToday">
+        <button mat-icon-button (click)="showTiffinReminder()">
+            <mat-icon>notification_important</mat-icon>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+/* form {
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+input[type="number"] {
+    width: 100%;
+}
+
+button {
+    align-self: flex-start;
+    padding: 8px 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+} */
+
+
+
+
+/* .payment-form-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+mat-toolbar {
+    margin-bottom: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .payment-form-card {
+        padding: 10px;
+    }
+
+    mat-grid-list {
+        margin: 0 -8px;
+    }
+} */
+
+
+
+/* .payment-form-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+mat-toolbar {
+    margin-bottom: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .payment-form-card {
+        padding: 10px;
+    }
+
+    mat-grid-list {
+        margin: 0 -8px;
+    }
+} */

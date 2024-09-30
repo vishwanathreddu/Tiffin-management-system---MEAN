@@ -1,0 +1,110 @@
+<!-- <h3>Payment Form</h3>
+<form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+    <div>
+        <label for="username">Username:</label>
+        <input id="username" formControlName="username" readonly />
+    </div>
+    <div>
+        <label for="amount">Amount:</label>
+        <input id="amount" type="number" formControlName="amount" readonly />
+    </div>
+    <div>
+        <label for="transactionPhoto">Transaction Photo:</label>
+        <input type="file" id="transactionPhoto" (change)="onFileChange($event)" />
+    </div>
+    <button type="submit" [disabled]="!paymentForm.valid">Submit Payment</button>
+</form> -->
+
+<!-- test-1 Good -->
+<h3>Payment Form</h3>
+<form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+    <div>
+        <label for="username">Username:</label>
+        <input id="username" formControlName="username" readonly />
+    </div>
+    <div>
+        <label for="amount">Amount:</label>
+        <input id="amount" type="number" formControlName="amount" readonly />
+    </div>
+    <div>
+        <label for="transactionPhoto">Transaction Photo:</label>
+        <input type="file" id="transactionPhoto" (change)="onFileChange($event)" />
+    </div>
+    <button type="submit" [disabled]="!paymentForm.valid">Submit Payment</button>
+</form> 
+
+
+<!-- <mat-toolbar color="primary">
+    <span>Payment Form</span>
+</mat-toolbar>
+
+<mat-card class="payment-form-card">
+    <form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+        <mat-grid-list cols="1" rowHeight="fit" gutterSize="16px">
+            <mat-grid-tile>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Username</mat-label>
+                    <input matInput id="username" formControlName="username" readonly />
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Amount</mat-label>
+                    <input matInput type="number" id="amount" formControlName="amount" readonly />
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Transaction Photo</mat-label>
+                    <input matInput type="file" id="transactionPhoto" (change)="onFileChange($event)" />
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.valid">
+                    Submit Payment
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</mat-card> -->
+
+
+<!-- <mat-toolbar color="primary">
+    <span>Payment Form</span>
+</mat-toolbar>
+
+<mat-card class="payment-form-card">
+    <form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+        <mat-grid-list cols="1" rowHeight="fit" gutterSize="16px">
+            <mat-grid-tile>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Username</mat-label>
+                    <input matInput id="username" formControlName="username" readonly />
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Amount</mat-label>
+                    <input matInput type="number" id="amount" formControlName="amount" readonly />
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Transaction Photo</mat-label>
+                    <input type="file" (change)="onFileChange($event)" />
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.valid">
+                    Submit Payment
+                </button>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</mat-card> -->

@@ -1,0 +1,137 @@
+<!-- Components/admin/admin-mark-tiffin-tomorrow.component.html -->
+<!-- <div class="container">
+    <h2>Tiffins Marked for Tomorrow</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Veg/Non-Veg</th>
+                <th>Chapatis</th>
+                <th>Sabji</th>
+                <th>Floor</th>
+                <th>Payment Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tiffin of tiffins">
+                <td>{{ tiffin.userId.fullname }}</td>
+                <td>{{ tiffin.vegOrNonVeg }}</td>
+                <td>{{ tiffin.chapatis }}</td>
+                <td>{{ tiffin.sabji ? 'Yes' : 'No' }}</td>
+                <td>{{ tiffin.floor }}</td>
+                <td>{{ tiffin.paymentStatus }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div> -->
+
+
+<!-- admin-mark-tiffin-tomorrow.component.html good-->
+<!-- <div class="container">
+    <mat-card>
+        <mat-card-title>Select Date to View Tiffins</mat-card-title>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Select Date</mat-label>
+                <input matInput [matDatepicker]="picker" (dateChange)="onDateChange($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div>
+
+            <div *ngIf="!errorMessage">
+                <table mat-table [dataSource]="tiffins" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="fullname">
+                        <th mat-header-cell *matHeaderCellDef> Full Name </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.userId.fullname}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="vegOrNonVeg">
+                        <th mat-header-cell *matHeaderCellDef> Meal Type </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.vegOrNonVeg}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="chapatis">
+                        <th mat-header-cell *matHeaderCellDef> Chapatis </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.chapatis}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="sabji">
+                        <th mat-header-cell *matHeaderCellDef> Sabji </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.sabji ? 'Yes' : 'No'}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="floor">
+                        <th mat-header-cell *matHeaderCellDef> Floor </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.floor}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div> -->
+
+<div class="container">
+    <mat-card>
+        <mat-card-title>Select Date to View Tiffins</mat-card-title>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Select Date</mat-label>
+                <input matInput [matDatepicker]="picker" [value]="selectedDate" (dateChange)="onDateChange($event)">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <!-- <div *ngIf="errorMessage" class="error-message">
+                {{ errorMessage }}
+            </div> -->
+            <div *ngIf="message" class="error-message">
+                {{ message }}
+            </div>
+
+            <div *ngIf="tiffins.length > 0">
+                <table mat-table [dataSource]="tiffins" class="mat-elevation-z8">
+                    <!-- Fullname Column -->
+                    <ng-container matColumnDef="fullname">
+                        <th mat-header-cell *matHeaderCellDef> Full Name </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.username}} </td>
+                    </ng-container>
+
+                    <!-- Veg or Non-Veg Column -->
+                    <ng-container matColumnDef="vegOrNonVeg">
+                        <th mat-header-cell *matHeaderCellDef> Meal Type </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.vegOrNonVeg}} </td>
+                    </ng-container>
+
+                    <!-- Chapatis Column -->
+                    <ng-container matColumnDef="chapatis">
+                        <th mat-header-cell *matHeaderCellDef> Chapatis </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.chapatis}} </td>
+                    </ng-container>
+
+                    <!-- Sabji Column -->
+                    <ng-container matColumnDef="sabji">
+                        <th mat-header-cell *matHeaderCellDef> Sabji </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.sabji ? 'Yes' : 'No'}} </td>
+                    </ng-container>
+
+                    <!-- Floor Column -->
+                    <ng-container matColumnDef="floor">
+                        <th mat-header-cell *matHeaderCellDef> Floor </th>
+                        <td mat-cell *matCellDef="let tiffin"> {{tiffin.floor}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

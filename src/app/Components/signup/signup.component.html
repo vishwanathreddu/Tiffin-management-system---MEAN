@@ -1,0 +1,107 @@
+<!-- <div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Sign Up</h5>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="mb-3">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+
+<!-- Best -->
+<!-- <div class="signup-container">
+    <mat-card>
+        <form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+            <h2>Sign Up</h2>
+            <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput formControlName="fullname">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+        </form>
+    </mat-card>
+</div> -->
+
+
+<div class="signup-container">
+    <mat-card>
+        <form (ngSubmit)="onSubmit()" [formGroup]="signupForm" class="form-container">
+            <h2 class="text-center">Sign Up</h2>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <mat-icon matPrefix>person</mat-icon>
+                <input matInput formControlName="fullname" placeholder="Enter your full name">
+                <mat-error *ngIf="signupForm.get('fullname')?.hasError('required')">
+                    Full name is <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <mat-icon matPrefix>mail</mat-icon>
+                <input matInput formControlName="email" placeholder="Enter your email">
+                <mat-error *ngIf="signupForm.get('email')?.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('email')?.hasError('email')">
+                    Please enter a valid <strong>email</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <mat-icon matPrefix>lock</mat-icon>
+                <input matInput type="password" formControlName="password" placeholder="Enter your password">
+                <mat-error *ngIf="signupForm.get('password')?.hasError('required')">
+                    Password is <strong>required</strong>
+                </mat-error>
+                <mat-error *ngIf="signupForm.get('password')?.hasError('minlength')">
+                    Password must be at least <strong>6 characters</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="button-container">
+                <button mat-raised-button color="primary" type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+                <a routerLink="/login" class="mat-button-link">Already signed in?</a>
+            </div>
+        </form>
+    </mat-card>
+</div>
+
+
+
+
+<!-- {
+  "fullname": "User1",
+  "email": "user1@gmail.com",
+  "password": "user@1"
+} -->
